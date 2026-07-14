@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morning Dashboard v2</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="kicker">Morning Dashboard v2</p>
+        <h1>Daily source radar</h1>
+      </div>
+      <div class="status" id="status" aria-live="polite">Loading sources...</div>
+    </header>
+
+    <section class="toolbar" aria-label="Dashboard controls">
+      <div class="tabs" id="sectionTabs"></div>
+      <div class="controlRow">
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Title, source, topic, summary">
+        </label>
+        <div class="segmented" aria-label="Language">
+          <button data-lang="en" class="active">EN</button>
+          <button data-lang="zh">中</button>
+          <button data-lang="es">ES</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="filters" aria-label="Filters">
+        <div class="filterBlock">
+          <div class="filterHead">
+            <h2>Sources</h2>
+            <button id="clearSource" type="button">All</button>
+          </div>
+          <div id="sourceFilters" class="filterList"></div>
+        </div>
+        <div class="filterBlock">
+          <div class="filterHead">
+            <h2>Topics</h2>
+            <button id="clearTopic" type="button">All</button>
+          </div>
+          <div id="topicFilters" class="filterList"></div>
+        </div>
+        <div class="filterBlock">
+          <h2>Source health</h2>
+          <div id="sourceHealth" class="healthList"></div>
+        </div>
+      </aside>
+
+      <section class="content" aria-label="Articles">
+        <div class="contentHead">
+          <div>
+            <p id="sectionDescription" class="sectionDescription"></p>
+            <h2 id="resultTitle">Latest items</h2>
+          </div>
+          <div id="resultCount" class="resultCount"></div>
+        </div>
+        <div id="emptyState" class="emptyState" hidden>
+          <strong>No items here yet.</strong>
+          <span>This section is ready for a source adapter.</span>
+        </div>
+        <div id="items" class="items"></div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
